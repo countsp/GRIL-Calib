@@ -91,6 +91,13 @@ roslaunch gril_calib hilti_xxxx.launch
 ```
 roslaunch gril_calib s3e_xxxx.launch
 ```
+- For my rosbag (c32w)
+
+```
+roslaunch gril_calib velodyne.launch
+```
+
+config 中 velodyne16.yaml 设置 topic
 
 After running the launch file, you simply run the bag file for each sequence.  
 
@@ -125,21 +132,39 @@ Similar to [LI-Init](https://github.com/hku-mars/LiDAR_IMU_Init), edit `config/x
 Thanks to [hku-mars/LiDAR_IMU_Init](https://github.com/hku-mars/LiDAR_IMU_Init) for sharing their awesome work!  
 We also thanks to [url-kaist/patchwork-plusplus-ros](https://github.com/url-kaist/patchwork-plusplus-ros) for sharing LiDAR ground segmentation algorithm.  
 
-## Citation
+# 安装问题
 
-If you find our paper useful in your research, please cite us using the following entry:  
-```BibTeX
-@ARTICLE{10506583,
-  author={Kim, TaeYoung and Pak, Gyuhyeon and Kim, Euntai},
-  journal={IEEE Robotics and Automation Letters}, 
-  title={GRIL-Calib: Targetless Ground Robot IMU-LiDAR Extrinsic Calibration Method Using Ground Plane Motion Constraints}, 
-  year={2024},
-  volume={9},
-  number={6},
-  pages={5409-5416},
-  keywords={Calibration;Laser radar;Robot sensing systems;Robots;Optimization;Odometry;Vectors;Calibration and identification;sensor fusion},
-  doi={10.1109/LRA.2024.3392081}}
+1.安装遇到报错：
+```
+CMake Error at /opt/ros/noetic/share/catkin/cmake/catkinConfig.cmake:83 (find_package):
+  Could not find a package configuration file provided by "livox_ros_driver"
+  with any of the following names:
 
+    livox_ros_driverConfig.cmake
+    livox_ros_driver-config.cmake
 ```
 
+**解决方法：**
+
+安装livox_driver:
+
+```    
+cd ~/catkin_ws
+git clone https://github.com/Livox-SDK/livox_ros_driver.git
+cd ..
+catkin_make
+```
+重新catkin_make前，加入
+
+```
+export CMAKE_PREFIX_PATH=/home/office2004/catkin_ws/livox_ros_driver/devel:$CMAKE_PREFIX_PATH
+```
+
+2.安装遇到报错：
+
+pp.hpp:16:10: fatal error: jsk_recognition_msgs/PolygonArray.h: No such file or directory
+   16 | #include <jsk_recognition_msgs/PolygonArray.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+sudo apt-get install ros-noetic-jsk-recognition-msgs
 
