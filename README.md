@@ -168,3 +168,40 @@ pp.hpp:16:10: fatal error: jsk_recognition_msgs/PolygonArray.h: No such file or 
 
 sudo apt-get install ros-noetic-jsk-recognition-msgs
 
+## 标定结果
+
+![Screenshot from 2024-12-23 11-40-26](https://github.com/user-attachments/assets/bf25a258-e837-4d4d-b781-d28d864aeb4d)
+```
+[Data accumulation] Rotation around Lidar X Axis complete! 
+[Data accumulation] Rotation around Lidar Y Axis complete! 
+[Data accumulation] Rotation around Lidar Z Axis complete! 
+[Rotation matrix Ground to LiDAR (euler)]   0.6598   0.4154 0.002392 deg
+[Rotation matrix Ground to IMU (euler)] -2.865  5.758  158.1 deg
+[Estimated LiDAR sensor height] : 2.075 m
+[calibration] Data accumulation finished, Lidar IMU calibration begins.
+
+============================================================ 
+
+Max Cross-correlation: IMU lag wtr Lidar : 0
+Time lag 1: IMU lag wtr Lidar : 0
+============================================================ 
+
+[Calibration Result] Rotation matrix from LiDAR frame to IMU frame    = -2.465799 -0.346237  3.863721 deg
+[Calibration Result] Translation vector from LiDAR frame to IMU frame = -0.035136  0.345199  1.938451 m
+[Calibration Result] Time Lag IMU to LiDAR    = 0.00012792 s 
+[Calibration Result] Bias of Gyroscope        =  0.010000  0.010000 -0.005406 rad/s
+[Calibration Result] Bias of Accelerometer    = -0.009217 -0.011067 -0.009621 m/s^2
+============================================================ 
+
+Gril-Calib : Ground Robot IMU-LiDAR calibration done.
+[TIMER] Batch optimization time consuming  227.679296 ms
+Failed to open /root/catkin_ws/src/result/traj.txt
+save LiDAR trajectory !!
+Rebuild thread terminated normally
+[laserMapping-1] process has finished cleanly
+log file: /home/office2004/.ros/log/be82b640-c0cf-11ef-a608-675e3a253327/laserMapping-1*.log
+^[[A^C[rviz-2] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+done
+```
