@@ -205,3 +205,5 @@ shutting down processing monitor...
 ... shutting down processing monitor complete
 done
 ```
+
+使用时time lag 时间误差大， 使用同一个包的不同时间段 标定结果无法收敛， 特别在imu过快情况下会提前结束（进度条拉满）
